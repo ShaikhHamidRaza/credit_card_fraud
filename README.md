@@ -87,15 +87,9 @@ The model prioritizes **high recall**, as missing fraudulent transactions is mor
 - Visualized performance using confusion matrix and ROC curve  
 - Applied threshold tuning for better fraud detection
 
-
----
-
 ### 5.Visual Section Missing (Huge Impact)
 
-Add this:
-
-```markdown
-## 📊 Visualizations
+##  Visualizations
 
 - Confusion Matrix
 - ROC Curve
