@@ -109,3 +109,17 @@ Best Model: **Random Forest / XGBoost**
 ---
 
 ## 📂 Project Structure
+
+credit-card-fraud-detection/
+│
+├── data/
+├── notebooks/
+│ └── fraud_detection.ipynb
+├── src/
+├── README.md
+├── requirements.txt
+
+---
+
+##  Author
+Hamid Raza
