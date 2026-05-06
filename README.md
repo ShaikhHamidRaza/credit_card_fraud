@@ -113,10 +113,15 @@ Best Model: **Random Forest / XGBoost**
 credit-card-fraud-detection/
 │
 ├── data/
+
 ├── notebooks/
+
 │ └── fraud_detection.ipynb
+
 ├── src/
+
 ├── README.md
+
 ├── requirements.txt
 
 ---
