@@ -1,74 +1,117 @@
 #  Credit Card Fraud Detection using Machine Learning
 
-##  Problem Statement
-Credit card fraud is a major issue in the financial industry. The goal of this project is to detect fraudulent transactions using machine learning techniques.
+##  Project Overview
+This project focuses on detecting fraudulent credit card transactions using machine learning models.
 
-This is a highly imbalanced classification problem where fraudulent transactions represent a very small fraction of the dataset.
+Fraud detection is a critical problem in the financial industry, as undetected fraud can lead to significant financial losses. The dataset used in this project is highly imbalanced, making the problem more challenging and realistic.
 
----
-
-##  Objective
-- Build a model to detect fraud transactions
-- Maximize **Recall** (important for catching fraud)
-- Maintain a balance between precision and recall
+The goal is to build a model that can accurately identify fraudulent transactions while maintaining a balance between precision and recall.
 
 ---
 
-##  Dataset
-- Source: Kaggle Credit Card Fraud Dataset
-- Total transactions: 284,807
-- Fraud cases: ~0.17%
-- Features:
-  - V1–V28 (PCA transformed features)
-  - Amount
-  - Time
-  - Target: Class (0 = Normal, 1 = Fraud)
+##  Dataset Information
+- Source: Kaggle - Credit Card Fraud Detection Dataset  
+- Total Transactions: ~284,000  
+- Fraud Cases: ~0.17% (highly imbalanced dataset)
+
+### Data Description:
+- `V1–V28`: PCA-transformed anonymized features  
+- `Amount`: Transaction amount  
+- `Time`: Time elapsed between transactions  
+- `Class`: Target variable  
+  - 0 → Normal transaction  
+  - 1 → Fraud transaction  
 
 ---
 
-##  Exploratory Data Analysis
-- Class imbalance visualization
-- Correlation heatmap
-- Fraud vs Amount analysis
-- Feature distribution (V14, V17 etc.)
+##  Features
+The model uses:
+- PCA features (`V1–V28`)
+- Transaction amount
+- Time feature
+
+Key observations:
+- Features like **V14, V17, and V12** contribute significantly to fraud detection.
 
 ---
 
-##  Data Preprocessing
-- Removed duplicates
-- Feature scaling (Amount)
-- Train-Test Split (Stratified)
-- SMOTE for handling class imbalance
+##  Machine Learning Approach
 
----
-
-##  Models Used
-- Logistic Regression
+### Models Used:
+- Logistic Regression (baseline)
 - Random Forest
 - Gradient Boosting
-- XGBoost
+- XGBoost (optional)
 
----
-
-##  Model Training Approach
-- Pipeline used (SMOTE + Model)
-- Cross Validation (Stratified K-Fold)
-- Hyperparameter Tuning (GridSearchCV)
+### Why These Models?
+- Logistic Regression → simple and interpretable baseline  
+- Random Forest → handles non-linear relationships well  
+- Gradient Boosting → improves performance on complex patterns  
+- XGBoost → optimized boosting for higher accuracy  
 
 ---
 
 ##  Evaluation Metrics
-- Recall (Primary metric)
-- Precision
-- F1 Score
-- ROC-AUC
-- Confusion Matrix
-- Precision-Recall Curve
+Due to class imbalance, accuracy is not a reliable metric.
+
+Metrics used:
+- **Precision** → correctness of fraud predictions  
+- **Recall** → ability to detect fraud cases  
+- **F1 Score** → balance between precision and recall  
+- **ROC-AUC** → model discrimination capability  
+
+### Key Insight:
+The model prioritizes **high recall**, as missing fraudulent transactions is more costly than false positives.
+
+- In real-world systems, too many false positives can affect user experience, so a balance between recall and precision is required.
 
 ---
 
-##  Threshold Optimization
-Instead of default 0.5 threshold, custom threshold tuning was used to balance recall and precision.
+## Project Workflow
+
+### 1. Data Preprocessing
+- Removed duplicate records  
+- Scaled the `Amount` feature  
+- Handled class imbalance using SMOTE  
+
+### 2. Train-Test Split
+- Used stratified split to preserve class distribution  
+
+### 3. Model Training
+- Built pipelines for each model  
+- Applied cross-validation (Stratified K-Fold)  
+- Performed hyperparameter tuning (GridSearchCV)  
+
+### 4. Model Evaluation
+- Evaluated using recall, precision, and F1-score  
+- Visualized performance using confusion matrix and ROC curve  
+- Applied threshold tuning for better fraud detection
+
+
+---
+
+### 5.Visual Section Missing (Huge Impact)
+
+Add this:
+
+```markdown
+## 📊 Visualizations
+
+- Confusion Matrix
+- ROC Curve
+- Precision-Recall Curve
+![Confusion Matrix](images/confusion_matrix.png)
+
+### 6. Prediction
+- Generated fraud predictions based on probability thresholds  
+
+
+---
+
+## Threshold Optimization
+Instead of using the default threshold (0.5), different thresholds were tested to balance recall and precision.
+
+Lower threshold increases recall (detects more fraud), while higher threshold reduces false positives. The optimal threshold was selected based on F1 score and business requirements.
 
 ---
 
@@ -108,7 +151,7 @@ Best Model: **Random Forest / XGBoost**
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 credit-card-fraud-detection/
 │
