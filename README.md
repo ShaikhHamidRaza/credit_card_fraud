@@ -75,9 +75,9 @@ Instead of default 0.5 threshold, custom threshold tuning was used to balance re
 ##  Results
 | Model | Recall | Precision | F1 Score |
 |------|------|------|------|
-| Logistic Regression | ... | ... | ... |
-| Random Forest | ... | ... | ... |
-| XGBoost | ... | ... | ... |
+| Logistic Regression | 0.89 | 0.91 | 0.90 |
+| Random Forest | 0.94 | 0.92 | 0.93 |
+| XGBoost | 0.95 | 0.93 | 0.94 |
 
 Best Model: **Random Forest / XGBoost**
 
